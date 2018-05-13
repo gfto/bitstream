@@ -64,14 +64,31 @@ static inline uint8_t *desc83p28_get_service(uint8_t *p_desc, uint8_t n)
     return p_desc_n;
 }
 
+static inline void desc83p28n_set_sid(uint8_t *p_desc_n, uint16_t i_sid)
+{
+    p_desc_n[0] = i_sid >> 8;
+    p_desc_n[1] = i_sid & 0xff;
+}
+
 static inline uint16_t desc83p28n_get_sid(const uint8_t *p_desc_n)
 {
     return (p_desc_n[0] << 8) | p_desc_n[1];
 }
 
+static inline void desc83p28n_set_visible(uint8_t *p_desc_n, bool i_visible)
+{
+	p_desc_n[2] = i_visible ? (p_desc_n[2] | 0x80) : (p_desc_n[2] &~ 0x80); // 1xxxxxxx
+}
+
 static inline bool desc83p28n_get_visible(const uint8_t *p_desc_n)
 {
     return !!(p_desc_n[2] & 0x80);
+}
+
+static inline void desc83p28n_set_lcn(uint8_t *p_desc_n, uint16_t i_lcn)
+{
+    p_desc_n[2] = (i_lcn >> 8) & 0x3;
+    p_desc_n[3] = i_lcn & 0xff;
 }
 
 static inline uint16_t desc83p28n_get_lcn(const uint8_t *p_desc_n)
