@@ -4,7 +4,7 @@ LIBDIR = $(PREFIX)/lib
 DATADIR = $(PREFIX)/share
 INCLUDE = $(DESTDIR)$(INCLUDEDIR)/bitstream
 PKGCONFIG = $(DESTDIR)$(DATADIR)/pkgconfig
-VERSION = 1.4
+VERSION = 1.5
 
 all:
 	ln -nsf .. examples/bitstream
@@ -27,6 +27,8 @@ install: bitstream.pc
 	@install -m 644 dvb/*.h $(INCLUDE)/dvb
 	@install -d $(INCLUDE)/dvb/si
 	@install -m 644 dvb/si/*.h $(INCLUDE)/dvb/si
+	@install -d $(INCLUDE)/ebu
+	@install -m 644 ebu/*.h $(INCLUDE)/ebu
 	@install -d $(INCLUDE)/ietf
 	@install -m 644 ietf/* $(INCLUDE)/ietf
 	@install -d $(INCLUDE)/ieee

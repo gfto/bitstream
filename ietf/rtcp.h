@@ -29,13 +29,14 @@
 # include <inttypes.h>
 
 # define RTCP_RTP_VERSION       2
+# define RTCP_PT_APP            204
 
 static inline void rtcp_set_rtp_version(uint8_t *p_rtcp)
 {
     p_rtcp[0] = RTCP_RTP_VERSION << 6;
 }
 
-static inline uint8_t rtcp_get_rc(uint8_t *p_rtcp)
+static inline uint8_t rtcp_get_rc(const uint8_t *p_rtcp)
 {
     return p_rtcp[0] & 0x1f;
 }
