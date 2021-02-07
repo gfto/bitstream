@@ -56,9 +56,12 @@ static inline void desc88p28_init(uint8_t *p_desc)
 }
 
 #define desc88p28_get_service desc83p28_get_service
-#define desc88p28_get_sid desc83p28_get_sid
-#define desc88p28_get_visible desc83p28_get_visible
-#define desc88p28_get_lcn desc83p28_get_lcn
+#define desc88p28n_set_sid desc83p28n_set_sid
+#define desc88p28n_get_sid desc83p28n_get_sid
+#define desc88p28n_set_visible desc83p28n_set_visible
+#define desc88p28n_get_visible desc83p28n_get_visible
+#define desc88p28n_set_lcn desc83p28n_set_lcn
+#define desc88p28n_get_lcn desc83p28n_get_lcn
 #define desc88p28_validate desc83p28_validate
 #define desc88p28_print desc83p28_print
 
